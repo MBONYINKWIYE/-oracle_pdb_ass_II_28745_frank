@@ -5,7 +5,7 @@
 - **Course:** Database Development with PL/SQL (INSY 8311)  
 - **Instructor:** Eric Maniraguha  
 - **Assignment:** Individual Assignment II – Oracle Pluggable Databases  
-- **Student Name:** Frank  
+- **Student Name:** MBONYINKWIYE Burumbuke Frank  
 - **Student ID:** 28745  
 
 ---
