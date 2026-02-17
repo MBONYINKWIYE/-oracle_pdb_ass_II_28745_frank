@@ -2,47 +2,46 @@
 --Task 1: Create a New Pluggable Database
 
 -- Create Pluggable Database
-CREATE PLUGGABLE DATABASE gh_pdb_29388
+CREATE PLUGGABLE DATABASE fr_pdb_28745
 ADMIN USER pdbadmin IDENTIFIED BY m2027
-FILE_NAME_CONVERT = ('pdbseed', 'gh_pdb_29388');
+FILE_NAME_CONVERT = ('pdbseed', 'fr_pdb_28745');
 
 -- Open Pluggable Database
 
-ALTER PLUGGABLE DATABASE gh_pdb_29388 OPEN;
+ALTER PLUGGABLE DATABASE fr_pdb_28745 OPEN;
 
 -- check status
 SHOW PDBS;
 
 -- Switch to pdb
-ALTER SESSION SET CONTAINER = gh_pdb_29388;
+ALTER SESSION SET CONTAINER = fr_pdb_28745;
 
 -- check current container
 SHOW CON_NAME;
 
 --Create user in PDB
-CREATE USER ghislaine_plsqlauca_29388
+CREATE USER frank_plsqlauca_28745
 IDENTIFIED BY m2027;
 
 -- Grant privileges to user
-GRANT CONNECT, RESOURCE TO ghislaine_plsqlauca_29388;
-
+GRANT CONNECT, RESOURCE TO frank_plsqlauca_28745;
 -- Check if user is created
-SELECT username FROM dba_users WHERE username = 'GHISLAINE_PLSQLAUCA_29388';
+SELECT username FROM dba_users WHERE username = 'FRANK_PLSQLAUCA_28745';
 
 --Connect to PDB using SQL*Plus
-sqlplus ghislaine_plsqlauca_29388/m2027@gh_pdb_29388
+sqlplus frank_plsqlauca_28745/m2027@fr_pdb_28745
 
 --Task 2: Create and Delete a PDB
 
-CREATE PLUGGABLE DATABASE gh_to_delete_pdb_29388
+CREATE PLUGGABLE DATABASE fr_to_delete_pdb_28745
 ADMIN USER admin IDENTIFIED BY m2027 
-FILE_NAME_CONVERT = ('pdbseed', 'gh_to_delete_pdb_29388');
+FILE_NAME_CONVERT = ('pdbseed', 'fr_to_delete_pdb_28745');
 
 -- Close the PDB before dropping it
-ALTER PLUGGABLE DATABASE gh_to_delete_pdb_29388 CLOSE IMMEDIATE;
+ALTER PLUGGABLE DATABASE fr_to_delete_pdb_28745 CLOSE IMMEDIATE;
 
 -- Drop the PDB
-DROP PLUGGABLE DATABASE gh_to_delete_pdb_29388 INCLUDING DATAFILES;
+DROP PLUGGABLE DATABASE fr_to_delete_pdb_28745 INCLUDING DATAFILES;
 
 -- list all PDBs to confirm deletion
 COLUMN name FORMAT A30
@@ -61,4 +60,4 @@ EXEC DBMS_XDB_CONFIG.SETHTTPSPORT(5500);
 
 -- 
 
-DROP PLUGGABLE DATABASE GA_PDB_28810 INCLUDING DATAFILES;
+DROP PLUGGABLE DATABASE FR_TO_DELETE_PDB_28745 INCLUDING DATAFILES;
